@@ -1,0 +1,12 @@
+Name:                go-router
+Version:             0.1
+Description:         Fast shortcuts
+License:             MIT
+License-file:        LICENSE
+Author:              Oscar Boykin
+Maintainer:          boykin@pobox.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+Executable go_router
+  Main-is:           GoRouter.hs
+  Build-Depends:     base >= 3 && < 5, containers >= 0.4
