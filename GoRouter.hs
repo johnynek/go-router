@@ -9,7 +9,8 @@ main = do
   fileData <- readFile (homeDir ++ "/.go-routes")
   let rts = getRoutes (lines fileData)
   (route:rest) <- getArgs
-  putStrLn $ bashCmd rts route
+  let cmd = bashCmd rts route
+  putStrLn cmd
 
 getRoute :: String -> (String, String)
 getRoute line
@@ -19,4 +20,4 @@ getRoute line
 getRoutes lines = Map.fromList $ map getRoute lines
 
 bashCmd :: Map.Map String String -> String -> String
-bashCmd routes cmd = fromMaybe "" $ Map.lookup cmd routes
+bashCmd routes cmd = fromMaybe ("open http://go/" ++ cmd) $ Map.lookup cmd routes
