@@ -3,3 +3,15 @@ To install in your ~/bin directory:
 $ runhaskell Setup configure --prefix=$HOME --user
 $ runhaskell Setup build
 $ runhaskell Setup install
+
+Add to your .bash_profile:
+
+function go {
+    `go_router $@`
+}
+
+and then make a file called "~/.go-routes"
+
+which has lines like:
+
+proj cd /Users/oscarb/my/proj
