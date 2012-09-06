@@ -16,7 +16,7 @@ searchCmd cmds = if "?" == (head cmds)
 httpGoCmd :: LookupFn
 httpGoCmd cmd = Just ("open http://go/" ++ (head cmd))
 
-getRoutes lines = Map.fromList $ map getRoute lines
+getRoutes lines = Map.fromList $ map getRoute (filter (\x -> (head x) /= '#') lines)
   where getRoute line = let (a, b) = (break (== ' ') line)
                         in (a, tail b)
 
